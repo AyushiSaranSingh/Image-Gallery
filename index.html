@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <header>
+    <h1>Ayushi's Image Gallery</h1>
+    <div>
+      <button id="themeToggle">🌓 Theme</button>
+    </div>
+  </header>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search images..." onkeyup="searchImages()" />
+    <div class="filter-buttons">
+      <button onclick="filterImages('all')" class="active">All</button>
+      <button onclick="filterImages('nature')">Nature</button>
+      <button onclick="filterImages('city')">City</button>
+      <button onclick="filterImages('Insects')">Insects</button>
+      <button onclick="filterImages('food')">Food</button>
+      <button onclick="filterImages('fruits')">Fruits</button>
+      <button onclick="filterImages('architecture')">Architecture</button>
+      <button onclick="filterImages('Village')">Village</button>
+      <button onclick="filterImages('Birds')">Birds</button>
+      <button onclick="filterImages('Animal')">Animal</button>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <!-- Sample images with categories -->
+    <div class="img-box nature" data-caption="Sunset">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/nature/sunset.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Sunset</p>
+    </div>
+        <div class="img-box nature" data-caption="Rain">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/nature/rain.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Rain</p>
+    </div>
+        <div class="img-box nature" data-caption="Glacier">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/nature/glacier.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Glacier</p>
+    </div>
+        <div class="img-box nature" data-caption="avenue">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/nature/avenue.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Avenue</p>
+    </div>
+        <!-- </div> -->
+        <div class="img-box nature" data-caption="nature's havoc">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/nature/styggkarret.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>nature's havoc</p>
+    </div>
+    <div class="img-box city" data-caption="City Bridge">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/city/citybridge.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>City Bridge</p>
+    </div>
+    <div class="img-box city" data-caption="City Architecture">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/city/cityarchitecture.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>City Architecture</p>
+    </div>
+        <div class="img-box city" data-caption="City Road">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/city/cityroad.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>City Road</p>
+    </div>
+    <div class="img-box Insects" data-caption="Bee">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/insect/bee.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Bee</p>
+    </div>
+    <div class="img-box Insects" data-caption="Ant">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/insect/ant.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Ant</p>
+    </div>
+        <div class="img-box Insects" data-caption="Butterfly">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/insect/butterfly.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Butterfly</p>
+    </div>
+    <div class="img-box food" data-caption="Pizza">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/food/pizza.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Pizza</p>
+    </div>
+        <div class="img-box food" data-caption="Pancakes">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/food/pancakes.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Pancakes</p>
+    </div>
+        <div class="img-box food" data-caption="Macarons">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/food/macarons.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Macarons</p>
+    </div>
+        <div class="img-box food" data-caption="Paratha">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/food/side-dish.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Paratha</p>
+    </div>
+    <div class="img-box fruits" data-caption="Apple">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/fruits/apple.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Apple</p>
+    </div>
+        <div class="img-box fruits" data-caption="Arbutus">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/fruits/arbutus.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Arbutus</p>
+    </div>
+        <div class="img-box fruits" data-caption="Pear">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/fruits/pear-3519397_12.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Pear</p>
+    </div>
+        <div class="img-box fruits" data-caption="Raspberries">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/fruits/raspberries.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Raspberries</p>
+    </div>
+        <div class="img-box Animal" data-caption="Cheetah">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/animal/animal.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Cheetah</p>
+    </div>
+            <div class="img-box Animal" data-caption="Chipmunk">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/animal/chipmunk.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Chipmunk</p>
+    </div>
+            <div class="img-box Animal" data-caption="Dog">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/animal/dog.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Dog</p>
+    </div>
+            <div class="img-box Animal" data-caption="Giraffe">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/animal/giraffe.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Giraffe</p>
+    </div>
+        <div class="img-box Birds" data-caption="Woodpecker">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/birds/great-spotted-woodpecker.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Woodpecker</p>
+    </div>
+            <div class="img-box Birds" data-caption="Gauriya">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/birds/indian-chat.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Gauriya</p>
+    </div>
+            <div class="img-box Birds" data-caption="Owl">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/birds/owl.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Owl</p>
+    </div>
+            <div class="img-box Birds" data-caption="Peacock">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/birds/peacock.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Peacock</p>
+    </div>
+    <div class="img-box architecture" data-caption="Mehtab Bagh">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/architecture/mehtab-bagh.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Mehtab bagh</p>
+    </div>
+        <div class="img-box architecture" data-caption="Museum">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/architecture/museum.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Museum</p>
+    </div>
+        <div class="img-box architecture" data-caption="Pisa tower">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/architecture/pisa.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Pisa Tower</p>
+    </div>
+    <div class="img-box Village" data-caption="ropiya">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/village/villageman.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Ropiya</p>
+    </div>
+    <div class="img-box Village" data-caption="Field(Khet)">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/village/village-field.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Khet</p>
+    </div>
+        <div class="img-box Village" data-caption="Farming Tool">
+      <img loading="lazy" src="/CodeAlpha_ImageGallery/village/india-tool.jpg" onclick="openLightbox(this)" width="300" height="200">
+      <p>Farming tool</p>
+    </div>
+  </div>
+
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image">
+    <p id="lightbox-caption"></p>
+    <div class="navigation">
+      <button onclick="prevImage()">&#10094;</button>
+      <button onclick="nextImage()">&#10095;</button>
+      <button onclick="toggleFullscreen()">⛶</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
